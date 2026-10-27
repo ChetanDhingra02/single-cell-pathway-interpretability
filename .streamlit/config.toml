@@ -1,6 +1,4 @@
-# Theme for the research website (website/streamlit_app.py).
-# Run from the repository root so Streamlit picks this file up:
-#   streamlit run website/streamlit_app.py
+
 
 [theme]
 base = "light"
@@ -28,7 +26,8 @@ chartCategoricalColors = ["#3d6fb6", "#c8693a", "#9a9486"]
 toolbarMode = "minimal"
 
 [server]
-headless = false
+headless = true
+showEmailPrompt = false
 runOnSave = false
 
 [browser]
