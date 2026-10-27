@@ -1,0 +1,8 @@
+hirisa_level,hirisa_label,hirisa_sample_population,kang_label,include,reason
+celltype.l2,CD14 Mono,Monocyte,CD14+ Monocytes,TRUE,Matches the enriched population (CD14 monocytes per GEO overall design) and Kang's CD14+ Monocytes class
+celltype.l2,CD16 Mono,Monocyte,FCGR3A+ Monocytes,FALSE,Different monocyte subset; not the enriched target; excluded from primary (included in all-QC-cells secondary)
+celltype.l2,(any other label),Monocyte,none,FALSE,Contaminating non-monocyte cells (T/DC/NK/B/HSPC/platelet etc.); excluded from primary (included in all-QC-cells secondary)
+celltype.l1,B,Bcell,B cells,TRUE,Stage 2: matches the enriched B-cell lineage (includes naive/intermediate/memory/plasmablast l2 subtypes)
+celltype.l1,NK,NK,NK cells,TRUE,Stage 2: matches the enriched NK lineage (includes CD56bright/proliferating l2 subtypes)
+celltype.l1,CD4 T | CD8 T | other T,Tcell,CD4 T cells + CD8 T cells,TRUE,Stage 2: matches the enriched T-cell lineage (pan-T enrichment; Kang has no single T class)
+celltype.l1,(any other l1 label),Bcell | NK | Tcell,none,FALSE,Stage 2: contaminating other-lineage cells; excluded from primary (included in all-QC-cells secondary)

@@ -1,0 +1,13 @@
+model,cell_type,std_difference_main,std_difference_noqc,abs_diff
+A,B cells,1.603,1.5968,0.0062
+A,CD14+ Monocytes,2.2769,2.2727,0.0043
+A,CD4 T cells,1.2952,1.2846,0.0106
+A,Dendritic cells,2.482,2.4685,0.0134
+A,FCGR3A+ Monocytes,2.1242,2.1164,0.0078
+A,NK cells,1.4015,1.3966,0.0049
+D,B cells,1.9472,1.949,0.0018
+D,CD14+ Monocytes,1.8592,1.8702,0.011
+D,CD4 T cells,1.6838,1.6739,0.0099
+D,Dendritic cells,2.2727,2.305,0.0324
+D,FCGR3A+ Monocytes,1.7694,1.7575,0.0119
+D,NK cells,1.7444,1.7579,0.0135

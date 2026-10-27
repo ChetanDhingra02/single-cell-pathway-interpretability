@@ -1,0 +1,9 @@
+cell_type,n_donors_ok,eligible
+B cells,8,True
+CD4 T cells,8,True
+CD8 T cells,5,False
+CD14+ Monocytes,8,True
+Dendritic cells,6,True
+FCGR3A+ Monocytes,6,True
+Megakaryocytes,0,False
+NK cells,8,True

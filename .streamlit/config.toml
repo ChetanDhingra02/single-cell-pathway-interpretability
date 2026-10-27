@@ -1,0 +1,35 @@
+# Theme for the research website (website/streamlit_app.py).
+# Run from the repository root so Streamlit picks this file up:
+#   streamlit run website/streamlit_app.py
+
+[theme]
+base = "light"
+primaryColor = "#3d6fb6"
+backgroundColor = "#fbf8f1"
+secondaryBackgroundColor = "#f3eee3"
+textColor = "#23262f"
+borderColor = "#e3dccd"
+linkColor = "#3d6fb6"
+codeTextColor = "#3a4f7a"
+codeBackgroundColor = "#f1ece0"
+font = "Geist:https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap"
+headingFont = "'Instrument Serif':https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+codeFont = "'Geist Mono':https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap"
+baseFontSize = 16
+baseRadius = "12px"
+buttonRadius = "999px"
+showWidgetBorder = true
+headingFontWeights = [400, 400, 400, 500, 500, 500]
+dataframeHeaderBackgroundColor = "#f3eee3"
+dataframeBorderColor = "#e3dccd"
+chartCategoricalColors = ["#3d6fb6", "#c8693a", "#9a9486"]
+
+[client]
+toolbarMode = "minimal"
+
+[server]
+headless = false
+runOnSave = false
+
+[browser]
+gatherUsageStats = false

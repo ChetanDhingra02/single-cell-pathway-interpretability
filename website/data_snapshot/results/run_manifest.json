@@ -1,0 +1,63 @@
+{
+  "project": "Auditing Faithfulness and Overlap in Pathway-Constrained Single-Cell Models",
+  "python": {
+    "version": "3.13.5",
+    "distribution": "Anaconda, Inc.",
+    "platform": "Windows 64-bit"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1+cpu",
+    "captum": "0.9.0",
+    "scanpy": "1.12.4",
+    "anndata": "0.13.4",
+    "matplotlib": "3.11.2",
+    "tabulate": "0.10.0",
+    "pytest": "9.1.1",
+    "h5py": "3.16.0"
+  },
+  "random_seeds": {
+    "network_cv": [
+      0,
+      1,
+      2
+    ],
+    "shuffle_mask": 456,
+    "attribution": 123,
+    "final_external_transfer_network": 0
+  },
+  "input_files": {
+    "kang_2018.h5ad": {
+      "path": "raw/kang/kang_2018.h5ad",
+      "sha256": "E6A5ADAC64DCDEB36EABA27DB49B63E0C64BB0ED4A64C6705971506B41C39830"
+    },
+    "hallmark_gmt": {
+      "path": "raw/msigdb/h.all.v2026.1.Hs.symbols.gmt",
+      "sha256": "EECAF6DAD908334AE885406EC72BDC0646D8917588ED7C219FAC92FC5363F596"
+    }
+  },
+  "external_file_manifests": {
+    "stage1": [
+      "data/hirisa/download_stage1.csv",
+      "data/hirisa/stage1_file_verification.csv"
+    ],
+    "stage2": [
+      "data/hirisa/download_stage2.csv",
+      "data/hirisa/download_stage2_verification.csv"
+    ]
+  },
+  "key_reproducibility_notes": {
+    "donor_cv_folds": 8,
+    "network_seeds_per_cv_model": 3,
+    "final_transfer_model_seed": 0,
+    "kang_qc_min_detected_genes": 200,
+    "min_pathway_genes": 10,
+    "min_detection_fraction": 0.01,
+    "external_transfer_genes": 2016,
+    "hirisa_stage1_cells": 262408,
+    "tests": "10 passed"
+  }
+}

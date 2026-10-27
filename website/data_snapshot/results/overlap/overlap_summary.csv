@@ -1,0 +1,7 @@
+model,cells,n_pairs,spearman_rho_jaccard_vs_abs_corr,n_pairs_with_overlap,median_abs_corr_overlapping,median_abs_corr_non_overlapping,ifn_pair_abs_corr,ifn_pair_abs_corr_percentile
+A,all,1081,0.5688,744,0.2981,0.1624,0.9374,0.9991
+A,ctrl_only,1081,0.5555,744,0.3277,0.1899,0.7161,0.9954
+D,all,1081,0.2787,744,0.39,0.2354,0.7515,0.9889
+D,ctrl_only,1081,0.2368,744,0.3805,0.2565,0.081,0.1351
+E,all,1081,0.1505,744,0.2812,0.1912,0.1054,0.2155
+E,ctrl_only,1081,0.159,744,0.2803,0.1918,0.0964,0.2155

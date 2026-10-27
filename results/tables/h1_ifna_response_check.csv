@@ -1,0 +1,13 @@
+model,cell_type,n_donors,n_positive,median_std_response,rank_of_ifna,n_units,passes
+D,B cells,8,8,1.9417794,1,47,True
+D,CD14+ Monocytes,8,8,1.8471015,2,47,True
+D,CD4 T cells,8,8,1.6816505333333334,1,47,True
+D,Dendritic cells,6,6,2.2663933666666667,1,47,True
+D,FCGR3A+ Monocytes,6,6,1.7607919833333334,2,47,True
+D,NK cells,8,8,1.7463959,1,47,True
+A,B cells,8,8,1.60302,1,47,True
+A,CD14+ Monocytes,8,8,2.2769361999999997,1,47,True
+A,CD4 T cells,8,8,1.2952439500000001,1,47,True
+A,Dendritic cells,6,6,2.48197695,1,47,True
+A,FCGR3A+ Monocytes,6,6,2.1241759499999997,1,47,True
+A,NK cells,8,8,1.4015027,1,47,True

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pathway audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- top bar -->
+  <header id="bar">
+    <button class="brand" data-go="home" aria-label="Home"><span class="cellmark"></span><span>Pathway audit</span></button>
+    <nav id="dots" aria-label="Chapters"></nav>
+    <div class="bar-right">
+      <div class="mode" role="group" aria-label="Reading level">
+        <button class="on" data-mode="plain">Plain</button><button data-mode="tech">Technical</button>
+      </div>
+      <button class="icon-btn" id="btn-map" data-go="map" aria-label="Lab bench map" title="Lab bench map (M)">
+        <svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="4"/><circle cx="17" cy="7" r="4"/><circle cx="7" cy="17" r="4"/><circle cx="17" cy="17" r="4"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-notes" aria-label="Lab notebook: methods and limitations" title="Methods & limitations">
+        <svg viewBox="0 0 24 24"><path d="M6 3h10l3 3v15H6z"/><path d="M9 9h7M9 13h7M9 17h4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="views">
+
+    <!-- HOME -->
+    <section class="view active" id="v-home" aria-label="Home">
+      <div class="home">
+        <div class="home-copy">
+          <div class="kicker"><i></i>A single-cell interpretability study</div>
+          <h1>Can we trust <em>pathway labels</em> inside a neural model?</h1>
+          <p class="lead p">Some neural models give hidden units the names of biological pathways. I tested whether those pathway-labelled units are actually driven mainly by genes from the pathway on their label.</p>
+          <p class="lead t">Pathway-constrained autoencoders assign gene-set names to latent units. I audit whether those labels are faithful using donor-held-out cross-validation, attribution and ablation analyses, pathway-overlap analysis, and independent HIRISA validation.</p>
+          <button class="cta" data-next>Start exploring <span class="arr">→</span></button>
+          <div class="home-facts"><span><b><span data-count="8">8</span> + <span data-count="5">5</span></b> Kang + HIRISA donors</span><span><b data-count="2">2</b> independent datasets</span><span><b data-count="47">47</b> consistently evaluated pathway units</span></div>
+        </div>
+        <div class="home-visual">
+          <div class="dish big" id="home-dish">
+            <canvas id="home-cells" aria-label="Model D’s 47 pathway units shown as cells"></canvas>
+            <div class="glass"></div>
+          </div>
+          <div class="cap">Each cell represents one of model D’s 47 pathway units evaluated in every fold. <b>Move your cursor near them.</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="view" id="v-map" aria-label="Lab bench">
+      <div class="map">
+        <div class="map-head">
+          <h2>The lab bench</h2>
+          <p>Seven plates, one finding each. Pick a plate to look closer.</p>
+        </div>
+        <div class="bench" id="bench"></div>
+      </div>
+    </section>
+
+    <!-- CH 1: question -->
+    <section class="view chapter" id="v-question" data-ch="0">
+      <div class="ch">
+        <div class="ch-text">
+          <div class="ch-num">Plate 01 · The question</div>
+          <h2>A pathway name is a <em>claim</em>, not a guarantee</h2>
+          <p class="p">Each latent unit, shown here as a dial, is labelled with a pathway. Its decoder may only <b>reconstruct</b> that pathway’s genes, but its encoder can <b>use</b> any input gene. The label says what the unit may reconstruct, not necessarily what drives it.</p>
+          <p class="t">Model D uses an unrestricted encoder and a masked, non-negative decoder. Latent unit <i>k</i> can reconstruct only genes assigned to pathway <i>k</i>, but any input gene can contribute to the encoder calculation of that unit.</p>
+          <div class="seg" id="schem-seg">
+            <button class="on" data-f="">Everything</button>
+            <button data-f="a">Inputs to the IFN-α unit</button>
+            <button data-f="o">Genes from other pathways</button>
+          </div>
+          <div class="pill">So does the IFN-α unit depend mainly on IFN-α pathway genes, or does it also rely strongly on genes outside its label?</div>
+        </div>
+        <div class="ch-visual"><div class="card schem-card" id="schem"></div></div>
+      </div>
+    </section>
+
+    <!-- CH 2: method -->
+    <section class="view chapter" id="v-method" data-ch="1">
+      <div class="ch stack">
+        <div class="ch-text wide">
+          <div class="ch-num">Plate 02 · How we tested</div>
+          <h2>Three faithfulness checks, then <em>external validation</em></h2>
+        </div>
+        <div class="tests">
+          <div class="test card"><div class="anim a-follow"><span></span><span></span></div>
+            <h4>Does it follow its genes?</h4>
+            <p class="p">Does the pathway unit rise and fall with the average expression of the genes assigned to it?</p>
+            <p class="t">Spearman correlation between the unit and the mean of its member genes, on held-out donors.</p></div>
+          <div class="test card"><div class="anim a-attn"><span></span><span></span></div>
+            <h4>Which genes influence it most?</h4>
+            <p class="p">What fraction of the unit’s total Integrated Gradients attribution falls on genes inside its named pathway?</p>
+            <p class="t">Integrated Gradients attribution purity = Σ|IG| on pathway-member genes ÷ Σ|IG| across all input genes.</p></div>
+          <div class="test card"><div class="anim a-knock"><i></i><i></i><i></i><i></i><i></i></div>
+            <h4>What if we remove its genes?</h4>
+            <p class="p">If we zero the pathway-gene inputs, does the unit change more than when we zero the same number of non-member genes?</p>
+            <p class="t">Ablation ratio = mean |Δz| after zeroing standardized member-gene inputs ÷ mean |Δz| across 20 size-matched random non-member sets.</p></div>
+        </div>
+        <div class="flow card">
+          <div class="flow-a">
+            <div class="flow-title">Kang 2018 · GEO GSE96583 · <span data-fact="kang_cells"></span> cells</div>
+            <div class="people" id="people"></div>
+            <div class="flow-sub p">For each fold, train on 6 donors, use 1 donor for validation, and evaluate on 1 unseen donor. Rotate until every donor has been held out once.</div>
+            <div class="flow-sub t">8-fold leave-one-donor-out CV: 6 train / 1 validation / 1 test, with 3 network seeds. Gene filtering and scaling are fitted on training donors only.</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-b">
+            <div class="flow-title">HIRISA · GEO GSE306664 · <span data-fact="hirisa_cells"></span> QC-passing cells</div>
+            <div class="people new" id="people-new"></div>
+            <div class="flow-sub p">Then score five independent donors using the frozen Kang-derived representations and scaler with no retraining. The external decision rule was set before HIRISA scoring. Of the <span data-fact="hirisa_cells"></span> QC-passing stage-1 cells, <span data-fact="hirisa_cd14"></span> are in the primary CD14-monocyte subset.</div>
+            <div class="flow-sub t">GSE306664: 5 donors × control / IFN-α / IFN-β / IFN-γ. Frozen Kang models and scaler, <span data-fact="transfer_genes"></span> final transfer genes, no external refitting. The primary analysis uses <span data-fact="hirisa_cd14"></span> CD14-monocyte cells; <span data-fact="hirisa_cells"></span> cells pass QC across the full 20-file stage-1 set.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH 3: faithfulness -->
+    <section class="view chapter" id="v-faith" data-ch="2">
+      <div class="ch">
+        <div class="ch-text">
+          <div class="ch-num">Plate 03 · Finding 1</div>
+          <h2>Pathway labels are informative, but only <em>partly</em> faithful</h2>
+          <div class="bignum"><b data-count-dec="0" id="faith-pct">37</b><span>%</span></div>
+          <p class="p">For a typical pathway unit, about <b id="faith-pct-txt"></b> of its absolute Integrated Gradients attribution falls on genes in its own pathway. The rest comes from genes outside the pathway label.</p>
+          <p class="t">Across the 47 model-D units present in all 8 folds, median attribution purity is <b id="faith-pur"></b> and <b id="faith-below"></b>/47 units (<b id="faith-below-pct"></b>) fall below 0.5. Median latent-vs-own-gene-set Spearman is <b id="faith-sp"></b>.</p>
+          <div class="pill good p">The assigned pathway genes still matter: zeroing them changes the unit about <b id="faith-abl"></b>× more than zeroing size-matched random non-member gene sets.</div>
+          <div class="pill good t">Median ablation ratio = <b id="faith-abl-t"></b>; no pathway has a median ratio ≤ 1. Own-gene-set Spearman is <b id="ctl-d"></b> for D versus <b id="ctl-e"></b> for E against its own shuffled genes; E versus the original biological sets is <b id="ctl-o"></b>.</div>
+        </div>
+        <div class="ch-visual">
+          <div class="card">
+            <div class="chart-title">Each cell is one pathway unit · fraction of |IG| attribution on genes in its own pathway <span class="hint">click one</span></div>
+            <div id="swarm" class="chart"></div>
+          </div>
+          <div class="card detail" id="unit-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH 4: overlap -->
+    <section class="view chapter" id="v-overlap" data-ch="3">
+      <div class="ch">
+        <div class="ch-text">
+          <div class="ch-num">Plate 04 · Finding 2</div>
+          <h2>More gene-set overlap is associated with more <em>correlated</em> pathway units</h2>
+          <p class="p">Across pathway pairs, units with more gene-set overlap tend to have more similar scores. For IFN-α and IFN-γ, the correlation is strong across all cells but weak in CTRL-only cells, so stimulation-driven co-activation also contributes.</p>
+          <p class="t">For model D, Spearman ρ between pathway Jaccard overlap and |latent-score correlation| is <b data-ov="D|all|rho"></b> across all held-out cells and <b data-ov="D|ctrl_only|rho"></b> in CTRL-only cells. Median |correlation| is <b data-ov="D|all|ov"></b> for overlapping pairs versus <b data-ov="D|all|non"></b> for non-overlapping pairs across all cells. This pairwise analysis is descriptive because pathway pairs are not independent.</p>
+          <div class="seg" id="ov-cells"><button class="on" data-v="all">All cells</button><button data-v="ctrl_only">CTRL (resting) cells only</button></div>
+          <div class="seg t" id="ov-model"><button class="on" data-v="D">D · pathway AE</button><button data-v="A">A · gene-set average</button><button data-v="E">E · shuffled control</button></div>
+          <div class="ifn-callout"><div class="lab">Interferon α × interferon γ</div><div class="val"><b id="ov-ifn">0.75</b><span id="ov-ifn-sub">strong co-movement across all cells</span></div></div>
+          <div class="stats t" id="ov-stats"></div>
+        </div>
+        <div class="ch-visual"><div class="card"><div class="chart-title">Every pair of pathway units (1,081 pairs)</div><div id="scatter" class="chart"></div></div></div>
+      </div>
+    </section>
+
+    <!-- CH 5: fix -->
+    <section class="view chapter" id="v-fix" data-ch="4">
+      <div class="ch">
+        <div class="ch-text">
+          <div class="ch-num">Plate 05 · The split</div>
+          <h2>Separate <em>shared</em> genes from pathway-specific genes</h2>
+          <p class="p">The measured Hallmark IFN-α and IFN-γ sets share <span data-ms="g_s"></span> genes. I decomposed them into <span data-ms="g_s"></span> shared genes, <span data-ms="g_a"></span> IFN-α-unique genes and <span data-ms="g_g"></span> IFN-γ-unique genes, so the two pathway-specific components no longer overlap with each other.</p>
+          <p class="t">Globally measured sets: IFN_SHARED = <span data-ms="g_s"></span>, IFNA_UNIQUE = <span data-ms="g_a"></span>, IFNG_UNIQUE = <span data-ms="g_g"></span>. After fold-specific training-donor detection filtering, the D2 masks contain <span data-ms="f_s"></span> shared, <span data-ms="f_a"></span> α-unique and <span data-ms="f_g"></span> γ-unique genes. A2 is the plain average of the same split.</p>
+          <button class="ghost" id="fix-replay">↻ Replay the split</button>
+          <div class="pill p">Reconstruction is essentially unchanged after the split: held-out MSE is <b data-fact-r="D"></b> for D and <b data-fact-r="D2"></b> for D2.</div>
+          <div class="pill t">Held-out MSE: D <b data-fact-r="D"></b> vs D2 <b data-fact-r="D2"></b>. The decomposition changes the IFN representation without materially changing overall reconstruction performance.</div>
+        </div>
+        <div class="ch-visual"><div class="card venn-card"><div id="venn" class="chart"></div>
+          <div class="genes" id="venn-genes"></div></div></div>
+      </div>
+    </section>
+
+    <!-- CH 6: external -->
+    <section class="view chapter" id="v-external" data-ch="5">
+      <div class="ch">
+        <div class="ch-text">
+          <div class="ch-num">Plate 06 · The real test</div>
+          <h2>On new donors, the gene-set <em>split</em> generalizes better than the neural gain</h2>
+          <p class="p">CD14 monocytes were the pre-specified primary test: D2 beat D in all 5 donors, but the simple split average A2 improved more and D2 did not beat A2. In B, NK and T cells, A2 beat A in all 5 donors while D2 beat D in 0/5, so the gene-set decomposition generalized better than the neural improvement.</p>
+          <p class="t">SEP measures type-I/type-II specificity per donor: [α response to type-I − α response to IFN-γ] + [γ response to IFN-γ − γ response to type-I], scaled by Kang reference SDs. Primary IFN-α/CD14 rule: better in ≥ 4/5 donors with positive median difference. D2−D = <b data-vd="IFNa|CD14 Mono|D2>D"></b>, A2−A = <b data-vd="IFNa|CD14 Mono|A2>A"></b>, and D2−A2 = <b data-vd="IFNa|CD14 Mono|D2>A2"></b>.</p>
+          <div class="seg" id="ext-cell"><button class="on" data-v="CD14 Mono">Monocytes</button><button data-v="B">B cells</button><button data-v="NK">NK cells</button><button data-v="T">T cells</button></div>
+          <div class="seg t" id="ext-stim"><button class="on" data-v="IFNa">IFN-α (primary)</button><button data-v="IFNb">IFN-β</button></div>
+          <div id="scorecard" class="scorecard"></div>
+        </div>
+        <div class="ch-visual"><div class="card"><div class="chart-title" id="ext-title">Type-I vs type-II interferon separation · higher is better</div><div id="ext" class="chart"></div></div></div>
+      </div>
+    </section>
+
+    <!-- CH 7: takeaway -->
+    <section class="view chapter" id="v-takeaway" data-ch="6">
+      <div class="ch stack center">
+        <div class="ch-num">Plate 07 · Takeaway</div>
+        <blockquote>A pathway-constrained decoder can reconstruct pathway genes well <em>without guaranteeing</em> that the corresponding latent unit is driven mainly by those genes.</blockquote>
+        <div class="sum">
+          <div class="s1"><b>Meaningful</b><span>Pathway units capture real biological signal.</span></div>
+          <div class="s2"><b>Partly faithful</b><span>Many units also depend substantially on genes outside their pathway label.</span></div>
+          <div class="s3"><b>Overlap-linked</b><span>Greater gene-set overlap is associated with more correlated pathway units.</span></div>
+          <div class="s4"><b>Split generalizes</b><span>The shared/unique gene-set decomposition improved specificity more consistently than the neural D2 improvement.</span></div>
+        </div>
+        <div class="end-actions"><button class="cta" data-go="map">Back to the bench</button><button class="ghost" id="btn-notes-2">Methods & limitations</button></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- bottom navigation -->
+  <button class="nav-btn" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nav-btn" id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg><span class="nav-label">Explore</span></button>
+  <div id="hint">Use ← → keys, or swipe</div>
+
+  <!-- notebook drawer -->
+  <aside id="drawer" aria-hidden="true">
+    <div class="drawer-head"><h3>Lab notebook</h3><button class="icon-btn" id="drawer-close" aria-label="Close">✕</button></div>
+    <div class="tabs" id="drawer-tabs"><button class="on" data-t="m">Methods</button><button data-t="l">Limitations</button><button data-t="r">Decision rules</button><button data-t="s">Data & sources</button></div>
+    <div class="drawer-body">
+      <div class="tab on" data-t="m">
+        <h4>Data</h4><ul><li>Kang 2018: 8 donors, control vs IFN-β, 24,562 cells after a ≥200-gene filter. CP10k + log1p.</li><li>MSigDB Hallmark v2026.1.Hs (Subramanian et al., 2005; Liberzon et al., 2015); a pathway needs ≥10 genes with ≥1% detection in training donors.</li></ul>
+        <h4>Models</h4><ul><li><b>A</b> gene-set average · <b>B</b> PCA · <b>C</b> unrestricted autoencoder (genes → 256 → K → genes)</li><li><b>D</b> unrestricted encoder + masked non-negative decoder; unit k reconstructs only genes assigned to pathway k.</li><li><b>E</b> same architecture as D, but gene identities are globally permuted while pathway sizes and the complete pairwise overlap topology are preserved.</li><li><b>D2 / A2</b> D and A with IFN-α/γ split into shared + unique modules</li></ul>
+        <h4>Evaluation</h4><ul><li>8-fold leave-one-donor-out CV, 3 seeds; filtering and scaling fit on training donors only.</li><li>Faithfulness: own-gene-set Spearman; Integrated Gradients purity (zero baseline); ablation vs 20 random size-matched sets. Ablation zeros standardized model inputs; it is not a biological gene knockout.</li><li>Overlap: Jaccard vs |Spearman| of unit scores, all cells and CTRL only.</li><li>External: frozen Kang-derived representations (final D/D2 models on 2,016 shared genes, seed 0; A/A2 gene-set averages) applied to HIRISA with the Kang scaler; no refitting.</li></ul>
+      </div>
+      <div class="tab" data-t="l"><ol class="lims">
+        <li><b>Unrestricted encoder.</b> Labels are hypotheses, so they are tested three ways.</li>
+        <li><b>Overlapping Hallmark sets.</b> Pair-level results are descriptive; no test treats the 1,081 pairs as independent.</li>
+        <li><b>One Kang perturbation (IFN-β).</b> Specificity claims rely on the external test only.</li>
+        <li><b>Five external donors.</b> A donor-count + median rule rather than p-values.</li>
+        <li><b>Cross-platform transfer.</b> Within-donor contrasts and Kang reference SDs; absolute levels are not compared.</li>
+        <li><b>One final neural seed</b> for the external models.</li>
+        <li><b>Hallmark-only input universe.</b> Findings hold within that gene space.</li>
+        <li><b>Cell-type differences in stage 2</b> are descriptive; no mechanism is inferred.</li>
+        <li>IG depends on its baseline, and zeroing genes perturbs the model; neither is a biological knockout.</li></ol></div>
+      <div class="tab" data-t="r"><table class="rules"><tr><th>Rule</th><th>Criterion</th><th>Outcome</th></tr>
+        <tr><td>H1</td><td>IFN-α response positive in all but at most 1 eligible donor per cell type, with median response ranked in the top 3 pathways for every eligible cell type</td><td>Met (A also meets it → sanity check)</td></tr>
+        <tr><td>H2</td><td>≥ 25% of D units with median purity &lt; 0.5</td><td>Met (70%)</td></tr>
+        <tr><td>H3</td><td>ρ(Jaccard, |corr|) &gt; 0 for D</td><td>Met descriptively (ρ = 0.279)</td></tr>
+        <tr><td>H4</td><td>D IFN-α vs IFN-γ Spearman ≥ 0.5</td><td>Met (0.752)</td></tr>
+        <tr><td>H5</td><td>Primary external criterion (pre-specified before HIRISA scoring): D2 &gt; D SEP in ≥ 4/5 CD14 donors, median &gt; 0</td><td>Met (5/5, +0.666)</td></tr>
+        <tr><td>Credit</td><td>median(A2−A) ≥ median(D2−D) → credit the split</td><td>Split credited</td></tr></table></div>
+      <div class="tab" data-t="s"><p>All scientific values come from the frozen result tables. No model is retrained or rescored; display-only summaries and chart geometry may be calculated from those stored values.</p><ul class="mono-list">
+        <li>results/tables/attribution_purity.csv</li><li>results/tables/pathway_faithfulness.csv</li><li>results/tables/shuffled_control_faithfulness.csv</li><li>results/attribution/top_input_genes.csv</li><li>results/tables/overlap_latent_association.csv</li><li>results/results_summary.md (H3, 3-dp values)</li><li>results/tables/ifn_alpha_gamma_genes.csv</li><li>results/tables/donor_cv_performance.csv</li><li>results/tables/hirisa_specificity.csv · hirisa_stage2_specificity.csv</li><li>results/external/h5_verdicts.csv · h5_stage2_verdicts.csv</li><li>results/tables/donor_pathway_response.csv · pathway_overlap.csv</li></ul>
+        <h4>Dataset and pathway references</h4>
+        <p class="small"><b>Kang dataset.</b> Kang HM, Subramaniam M, Targ S, et al. <i>Multiplexed droplet single-cell RNA-sequencing using natural genetic variation.</i> Nature Biotechnology. 2018;36(1):89–94. doi:10.1038/nbt.4042. GEO: GSE96583.</p>
+        <p class="small"><b>HIRIS-Atlas external dataset.</b> Moss N, Sakai C, Kaul S, et al. <i>Revealing differential type I and type II IFN responses in different immune cells in various human diseases by a new IFNs transcriptomic atlas.</i> NCBI Gene Expression Omnibus: GSE306664; BioProject PRJNA1303123. The GEO record did not list an associated publication at the time of this analysis.</p>
+        <p class="small"><b>MSigDB Hallmark pathways.</b> Subramanian A, Tamayo P, Mootha VK, et al. <i>Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles.</i> PNAS. 2005;102(43):15545–15550. doi:10.1073/pnas.0506580102. Liberzon A, Birger C, Thorvaldsdóttir H, et al. <i>The Molecular Signatures Database (MSigDB) hallmark gene set collection.</i> Cell Systems. 2015;1(6):417–425. doi:10.1016/j.cels.2015.12.004. Hallmark release used: MSigDB v2026.1.Hs. MSigDB releases v2022.1 and above are distributed under CC BY 4.0.</p>
+        <p class="small">This project is a secondary computational analysis of publicly available datasets. No new participant data were collected, and raw datasets are not redistributed with the repository.</p></div>
+    </div>
+  </aside>
+  <div id="scrim"></div>
+  <div id="tip" role="tooltip"></div>
+</div>
+<script>window.__DATA = /*__DATA__*/null;</script>
+<script>/*__JS__*/</script>
+</body>
+</html>

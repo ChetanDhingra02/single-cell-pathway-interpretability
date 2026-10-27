@@ -1,0 +1,6 @@
+,pass
+1_eligible_cell_types_unchanged,True
+2_ifna_sign_agrees_all_donor_celltype,True
+3_h1_verdict_same_D,True
+3_h1_verdict_same_A,True
+4_median_faithfulness_diff_lt_0.05,True

@@ -1,0 +1,8 @@
+model,test_mse_mean,test_mse_sd_over_donors,cell_type_bal_acc_mean,cell_type_bal_acc_sd_over_donors,condition_bal_acc_mean,condition_bal_acc_sd_over_donors
+A,,,0.574,0.0597,0.9697,0.0117
+B,0.902,0.0221,0.8578,0.0557,0.9868,0.0067
+C,0.903,0.0222,0.8655,0.0467,0.9867,0.0068
+D,0.9404,0.025,0.6987,0.0572,0.9822,0.0072
+D2,0.9403,0.0248,0.6867,0.0421,0.9822,0.0073
+E,0.9521,0.0261,0.6133,0.0317,0.9707,0.0124
+mean,1.0102,0.0308,,,,

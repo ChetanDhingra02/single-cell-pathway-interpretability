@@ -1,0 +1,21 @@
+cell_set,type1_stimulus,role,comparison,n_donors_better,n_donors,median_difference,criterion_met
+primary_CD14Mono,IFNa,PRIMARY (pre-specified verdict),H5: D2 vs D,5.0,5,0.6655251011179559,True
+primary_CD14Mono,IFNa,PRIMARY (pre-specified verdict),H5-baseline (a): D2 vs A,5.0,5,1.5188566019574117,True
+primary_CD14Mono,IFNa,PRIMARY (pre-specified verdict),H5-baseline (b): D2 vs A2,0.0,5,-0.9956958457705047,False
+primary_CD14Mono,IFNa,PRIMARY (pre-specified verdict),"context: A2 vs A (split, no network)",5.0,5,2.498170149305613,True
+primary_CD14Mono,IFNa,PRIMARY (pre-specified verdict),credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.8326450481876573,True
+primary_CD14Mono,IFNb,"secondary (reported, no verdict)",H5: D2 vs D,5.0,5,0.7918241172308327,True
+primary_CD14Mono,IFNb,"secondary (reported, no verdict)",H5-baseline (a): D2 vs A,5.0,5,1.5729531325304476,True
+primary_CD14Mono,IFNb,"secondary (reported, no verdict)",H5-baseline (b): D2 vs A2,0.0,5,-1.0194596571917414,False
+primary_CD14Mono,IFNb,"secondary (reported, no verdict)","context: A2 vs A (split, no network)",5.0,5,2.592412789722189,True
+primary_CD14Mono,IFNb,"secondary (reported, no verdict)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.8005886724913562,True
+secondary_all_cells,IFNa,"secondary (reported, no verdict)",H5: D2 vs D,5.0,5,0.6205256713946974,True
+secondary_all_cells,IFNa,"secondary (reported, no verdict)",H5-baseline (a): D2 vs A,5.0,5,1.4495821958694362,True
+secondary_all_cells,IFNa,"secondary (reported, no verdict)",H5-baseline (b): D2 vs A2,0.0,5,-0.9408035663636123,False
+secondary_all_cells,IFNa,"secondary (reported, no verdict)","context: A2 vs A (split, no network)",5.0,5,2.3627298276875366,True
+secondary_all_cells,IFNa,"secondary (reported, no verdict)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.7422041562928392,True
+secondary_all_cells,IFNb,"secondary (reported, no verdict)",H5: D2 vs D,5.0,5,0.7664164846672379,True
+secondary_all_cells,IFNb,"secondary (reported, no verdict)",H5-baseline (a): D2 vs A,5.0,5,1.513497855989339,True
+secondary_all_cells,IFNb,"secondary (reported, no verdict)",H5-baseline (b): D2 vs A2,0.0,5,-0.9740931648528264,False
+secondary_all_cells,IFNb,"secondary (reported, no verdict)","context: A2 vs A (split, no network)",5.0,5,2.457603877911002,True
+secondary_all_cells,IFNb,"secondary (reported, no verdict)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.691187393243764,True

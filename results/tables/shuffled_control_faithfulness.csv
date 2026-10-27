@@ -1,0 +1,4 @@
+model,n_pathways,median_over_pathways,min,max
+D (own = real set),47,0.673,-0.178,0.929
+E vs its own shuffled set,47,0.455,0.107,0.589
+E vs original biological set,47,0.201,-0.3,0.652

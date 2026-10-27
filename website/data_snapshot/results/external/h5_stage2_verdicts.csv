@@ -1,0 +1,81 @@
+cell_type,cell_set,type1_stimulus,donors,role,comparison,n_donors_better,n_donors,median_difference,criterion_met
+Bcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5: D2 vs D,0.0,5,-0.5340139568029332,False
+Bcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (a): D2 vs A,0.0,5,-0.22621331955737944,False
+Bcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (b): D2 vs A2,0.0,5,-0.7848455735150517,False
+Bcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)","context: A2 vs A (split, no network)",5.0,5,0.615520118042777,True
+Bcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.1495340748457101,True
+Bcell,primary_lineage,IFNa,sensitivity: without 3491BW,"secondary main (lineage cells, IFN-alpha)",H5: D2 vs D,0.0,4,-0.5030322043551018,False
+Bcell,primary_lineage,IFNa,sensitivity: without 3491BW,"secondary main (lineage cells, IFN-alpha)",H5-baseline (a): D2 vs A,0.0,4,-0.245105223738888,False
+Bcell,primary_lineage,IFNa,sensitivity: without 3491BW,"secondary main (lineage cells, IFN-alpha)",H5-baseline (b): D2 vs A2,0.0,4,-0.813289505557604,False
+Bcell,primary_lineage,IFNa,sensitivity: without 3491BW,"secondary main (lineage cells, IFN-alpha)","context: A2 vs A (split, no network)",4.0,4,0.616250941264823,True
+Bcell,primary_lineage,IFNa,sensitivity: without 3491BW,"secondary main (lineage cells, IFN-alpha)",credit rule: Δ_split >= Δ_net -> credit decomposition,,4,1.1192831456199248,True
+Bcell,primary_lineage,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.45004967696789566,False
+Bcell,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,0.0,5,-0.172499977255276,False
+Bcell,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.824454130781686,False
+Bcell,primary_lineage,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.6828844847668858,True
+Bcell,primary_lineage,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.1329341617347815,True
+Bcell,primary_lineage,IFNb,sensitivity: without 3491BW,secondary robustness,H5: D2 vs D,0.0,4,-0.4476307104647219,False
+Bcell,primary_lineage,IFNb,sensitivity: without 3491BW,secondary robustness,H5-baseline (a): D2 vs A,0.0,4,-0.1993871183547089,False
+Bcell,primary_lineage,IFNb,sensitivity: without 3491BW,secondary robustness,H5-baseline (b): D2 vs A2,0.0,4,-0.8399192964019239,False
+Bcell,primary_lineage,IFNb,sensitivity: without 3491BW,secondary robustness,"context: A2 vs A (split, no network)",4.0,4,0.6933525379738262,True
+Bcell,primary_lineage,IFNb,sensitivity: without 3491BW,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,4,1.1409832484385483,True
+Bcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.5122689502375344,False
+Bcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (a): D2 vs A,0.0,5,-0.20731498284711103,False
+Bcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.7669745047510419,False
+Bcell,secondary_all_cells,IFNa,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.6174378473596214,True
+Bcell,secondary_all_cells,IFNa,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.1297067975971558,True
+Bcell,secondary_all_cells,IFNa,sensitivity: without 3491BW,secondary robustness,H5: D2 vs D,0.0,4,-0.48619165657615565,False
+Bcell,secondary_all_cells,IFNa,sensitivity: without 3491BW,secondary robustness,H5-baseline (a): D2 vs A,0.0,4,-0.22467981624866284,False
+Bcell,secondary_all_cells,IFNa,sensitivity: without 3491BW,secondary robustness,H5-baseline (b): D2 vs A2,0.0,4,-0.7958636674788871,False
+Bcell,secondary_all_cells,IFNa,sensitivity: without 3491BW,secondary robustness,"context: A2 vs A (split, no network)",4.0,4,0.6201844706661717,True
+Bcell,secondary_all_cells,IFNa,sensitivity: without 3491BW,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,4,1.1063761272423274,True
+Bcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.4402310431494295,False
+Bcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,0.0,5,-0.15384948808619314,False
+Bcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.8070846772033233,False
+Bcell,secondary_all_cells,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.6859767520589672,True
+Bcell,secondary_all_cells,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,1.1262077952083969,True
+Bcell,secondary_all_cells,IFNb,sensitivity: without 3491BW,secondary robustness,H5: D2 vs D,0.0,4,-0.4332087793011539,False
+Bcell,secondary_all_cells,IFNb,sensitivity: without 3491BW,secondary robustness,H5-baseline (a): D2 vs A,0.0,4,-0.18065690911166676,False
+Bcell,secondary_all_cells,IFNb,sensitivity: without 3491BW,secondary robustness,H5-baseline (b): D2 vs A2,0.0,4,-0.8234554586742419,False
+Bcell,secondary_all_cells,IFNb,sensitivity: without 3491BW,secondary robustness,"context: A2 vs A (split, no network)",4.0,4,0.6963105794256019,True
+Bcell,secondary_all_cells,IFNb,sensitivity: without 3491BW,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,4,1.1295193587267558,True
+NK,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5: D2 vs D,0.0,5,-0.5834294282669668,False
+NK,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (a): D2 vs A,5.0,5,0.15656035635638776,True
+NK,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (b): D2 vs A2,0.0,5,-0.14422362324937832,False
+NK,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)","context: A2 vs A (split, no network)",5.0,5,0.3007839796057661,True
+NK,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.8842134078727328,True
+NK,primary_lineage,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.49199206686848673,False
+NK,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.23540153181185897,True
+NK,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.19992450425985986,False
+NK,primary_lineage,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.4353260360717188,True
+NK,primary_lineage,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9273181029402056,True
+NK,secondary_all_cells,IFNa,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.5819022110485308,False
+NK,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.1606468596933377,True
+NK,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.14788698609192918,False
+NK,secondary_all_cells,IFNa,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.3085338457852669,True
+NK,secondary_all_cells,IFNa,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.8904360568337977,True
+NK,secondary_all_cells,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.47884221652143655,False
+NK,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.23929679829986705,True
+NK,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.20461653272698133,False
+NK,secondary_all_cells,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.4439133310268484,True
+NK,secondary_all_cells,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9227555475482849,True
+Tcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5: D2 vs D,0.0,5,-0.37961308021881823,False
+Tcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (a): D2 vs A,5.0,5,0.2893420752384701,True
+Tcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",H5-baseline (b): D2 vs A2,0.0,5,-0.2471374236650088,False
+Tcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)","context: A2 vs A (split, no network)",5.0,5,0.5364794989034789,True
+Tcell,primary_lineage,IFNa,all donors,"secondary main (lineage cells, IFN-alpha)",credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9160925791222971,True
+Tcell,primary_lineage,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.3131756202599678,False
+Tcell,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.381279564510397,True
+Tcell,primary_lineage,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.2754599663231394,False
+Tcell,primary_lineage,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.6020854519963339,True
+Tcell,primary_lineage,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9152610722563017,True
+Tcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.37715767324811944,False
+Tcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.2932652288550126,True
+Tcell,secondary_all_cells,IFNa,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.24712309059494908,False
+Tcell,secondary_all_cells,IFNa,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.5414633589527125,True
+Tcell,secondary_all_cells,IFNa,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9186210322008319,True
+Tcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5: D2 vs D,0.0,5,-0.31186878156584874,False
+Tcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (a): D2 vs A,5.0,5,0.3817398138174142,True
+Tcell,secondary_all_cells,IFNb,all donors,secondary robustness,H5-baseline (b): D2 vs A2,0.0,5,-0.27294660350445965,False
+Tcell,secondary_all_cells,IFNb,all donors,secondary robustness,"context: A2 vs A (split, no network)",5.0,5,0.611855303379284,True
+Tcell,secondary_all_cells,IFNb,all donors,secondary robustness,credit rule: Δ_split >= Δ_net -> credit decomposition,,5,0.9237240849451327,True

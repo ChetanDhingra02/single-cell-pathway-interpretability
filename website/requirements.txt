@@ -1,0 +1,5 @@
+# Dependencies for the research website only (the analysis keeps its own pins in ../requirements.txt).
+# Python packs the result tables into JSON; the interactive front end in web/ is plain HTML/CSS/JS.
+# Pinned to the tested minor release: the host page relies on Streamlit's iframe rendering and page structure.
+streamlit>=1.66,<1.67
+pandas>=2.2
