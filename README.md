@@ -1,5 +1,7 @@
 # Auditing Faithfulness and Overlap in Pathway-Constrained Single-Cell Models
 
+**Live interactive demo:** [single-cell-pathway-interpretability.streamlit.app](https://single-cell-pathway-interpretability.streamlit.app/)
+
 Neural models with an underlying pathway-constrained design are often read as though each latent variable stands for the biological pathway it is labelled with. This project aims to test that assumption.
 
 I use donor-held-out single-cell RNA-seq data to check whether pathway-labelled latent variables actually reflect their assigned genes, whether overlap between pathways leads to latent entanglement, and whether splitting the interferon gene sets into shared and unique components improves specificity on an independent dataset.
